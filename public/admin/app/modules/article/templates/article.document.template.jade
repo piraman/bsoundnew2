@@ -1,0 +1,32 @@
+.container-fluid
+	br
+	.panel.panel-default.ui-ribbon-container
+		.panel-heading
+			span.fa.fa-bars &nbsp;Ribbon
+		.panel-body
+			.row
+				.col-md-12
+					form.form-horizontal
+						.form-group
+							label.control-label.col-md-2 Заголовок
+							.col-md-10
+								input.form-control(ng-model='article.title')
+						.form-group
+							label.control-label.col-md-2 Содержание
+							.col-md-10
+								text-angular(ng-model='article.content')
+						.form-group
+							label.control-label.col-md-2 Статус
+							.col-md-10
+								input.form-control(ng-model='article.status')
+						.form-group
+							label.control-label.col-md-2 Дата публикации
+							.col-md-10
+								p.input-group
+									input.form-control(datepicker-popup='dd-MMMM-yyyy', ng-model='article.publishDate', is-open='opened', min-date='minDate', max-date="'2015-06-22'")
+									span.input-group-btn
+										button.btn.btn-default(ng-click='open($event)')
+											i.fa.fa-bars
+						.form-group
+							.col-md-10.col-md-offset-2
+								button.btn.btn-default(ng-click='saveDocument()') Сохранить

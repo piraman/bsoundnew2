@@ -1,0 +1,84 @@
+
+<div ng-switch="multiple" class="picture-uploader">
+  <div ng-switch-when="true" class="well">
+    <div ng-show="model.length &gt; 0" class="panel-default panel">
+      <div class="panel-heading">Загруженные картинки</div>
+      <div class="panel-body">
+        <div class="row">
+          <div ng-repeat="picture in model" class="col-md-4">
+            <div class="thumbnail"><img ng-src="{{picture.url}}"/>
+              <div class="caption">
+                <p>{{picture.name}}</p>
+                <div class="btn-group btn-group-justified">
+                  <div class="btn-group">
+                    <button ng-click="deletePicture($index)" class="btn btn-default">Удалить</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div ng-show="selectedPictures.length &gt; 0" class="panel-default panel">
+      <div class="panel-heading">Выбранные картинки</div>
+      <div class="panel-body">
+        <div class="row">
+          <div ng-repeat="selectedPicture in selectedPictures" class="col-md-4">
+            <div class="thumbnail"><img ng-src="{{selectedPicture.url}}"/>
+              <div class="caption">
+                <p>{{selectedPicture.name}}</p>
+                <div class="btn-group btn-group-justified">
+                  <div class="btn-group">
+                    <button ng-click="uploadPicture($index)" class="btn btn-default">Загрузить</button>
+                  </div>
+                  <div class="btn-group">
+                    <button ng-click="cancelPicture($index)" class="btn btn-default">Отменить</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><span class="btn btn-default btn-file">Выбрать картинку
+      <input type="file" name="other" multiple="multiple" onchange="angular.element(this).scope().fileChange(this)"/></span>
+  </div>
+  <div ng-switch-when="false" class="well">
+    <div ng-show="model != null || selectedPicture != null" class="panel-default panel">
+      <div class="panel-heading">Картинка</div>
+      <div class="panel-body">
+        <div class="row">
+          <div ng-show="selectedPicture != null" class="col-md-4">
+            <div class="thumbnail"><img ng-src="{{selectedPicture.url}}"/>
+              <div class="caption">
+                <p>{{selectedPicture.name}}</p>
+                <div class="btn-group btn-group-justified">
+                  <div class="btn-group">
+                    <button ng-click="uploadPicture($index)" class="btn btn-default">Загрузить</button>
+                  </div>
+                  <div class="btn-group">
+                    <button ng-click="cancelPicture($index)" class="btn btn-default">Отменить</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div ng-show="model != null" class="col-md-4">
+            <div class="thumbnail"><img ng-src="{{model.url}}"/>
+              <div class="caption">
+                <p>{{model.name}}</p>
+                <div class="btn-group btn-group-justified">
+                  <div class="btn-group">
+                    <button ng-click="deletePicture($index)" class="btn btn-default">Удалить</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><span ng-show="model == null &amp;&amp; selectedPicture == null" class="btn btn-default btn-file">Выбрать картинку
+      <input type="file" name="main" onchange="angular.element(this).scope().fileChange(this)"/></span>
+  </div>
+</div>

@@ -1,0 +1,248 @@
+.container
+	//
+		Slider
+		================================================== 
+	.six.columns
+		.slider-padding
+			#product-slider.royalSlider.rsDefault.rsAutoHeight.rsHor.rsWithThumbs.rsWithThumbsHor(style='height: 300px;')
+				.rsOverflow(style='cursor: -webkit-grab; width: 100%; -webkit-transition: height 600ms ease-in-out; transition: height 600ms ease-in-out;')
+					.rsContainer(style='-webkit-transition: 0s; transition: 0s; -webkit-transform: translate3d(0px, 0px, 0px);')
+						.rsSlide(style='left: 0px;')
+							img.rsImg.rsMainSlideImage(ng-src='{{product.pictures.main.url}}', data-rstmb='images/product_item_thumb_01a.png', alt='', style='visibility: visible; -webkit-transition: opacity 400ms ease-in-out; transition: opacity 400ms ease-in-out; opacity: 1; width: 100%;')
+						//- .rsSlide(style='left: 560px;')
+						//- 	img.rsImg.rsMainSlideImage(ng-src='{{product.pictures.main.url}}', data-rstmb='images/product_item_thumb_02a.png', alt='')
+						//- .rsSlide(style='left: 1120px;')
+						//- 	img.rsImg.rsMainSlideImage(ng-src='{{product.pictures.main.url}}', data-rstmb='images/product_item_thumb_03a.png', alt='')
+					.rsArrow.rsArrowLeft.rsArrowDisabled(style='display: block;')
+						.rsArrowIcn
+					.rsArrow.rsArrowRight(style='display: block;')
+						.rsArrowIcn
+				//- .rsNav.rsThumbs.rsThumbsHor(style='padding-top: 10px;')
+				//- 	.rsThumbsContainer(style='-webkit-transition: -webkit-transform; transition: -webkit-transform; width: 954px;')
+				//- 		.rsNavItem.rsThumb.rsNavSelected(style='margin-right:10px;')
+				//- 			img(ng-src='{{product.pictures.main.url}}')
+				//- 			span.thumbIco
+				//- 		.rsNavItem.rsThumb(style='margin-right:10px;')
+				//- 			img(ng-src='{{product.pictures.main.url}}')
+				//- 			span.thumbIco
+				//- 		.rsNavItem.rsThumb(style='margin-right:10px;')
+				//- 			img(ng-src='{{product.pictures.main.url}}')
+				//- 			span.thumbIco
+				//- 		.rsNavItem.rsThumb(style='margin-right:10px;')
+				//- 			img(ng-src='{{product.pictures.main.url}}')
+				//- 			span.thumbIco
+				//- 		.rsNavItem.rsThumb(style='margin-right:10px;')
+				//- 			img(ng-src='{{product.pictures.main.url}}')
+				//- 			span.thumbIco
+				//- 		.rsNavItem.rsThumb(style='margin-right:10px;')
+				//- 			img(ng-src='{{product.pictures.main.url}}')
+				//- 			span.thumbIco
+				//- 		.rsNavItem.rsThumb(style='margin-right:10px;')
+				//- 			img(ng-src='{{product.pictures.main.url}}')
+				//- 			span.thumbIco
+				//- 		.rsNavItem.rsThumb(style='margin-right:10px;')
+				//- 			img(ng-src='{{product.pictures.main.url}}')
+				//- 			span.thumbIco
+				//- 		.rsNavItem.rsThumb(style='margin-right:10px;')
+				//- 			img(ng-src='{{product.pictures.main.url}}')
+				//- 			span.thumbIco
+				//- 	.rsThumbsArrow.rsThumbsArrowLeft.rsThumbsArrowDisabled
+				//- 		.rsThumbsArrowIcn
+				//- 	.rsThumbsArrow.rsThumbsArrowRight
+				//- 		.rsThumbsArrowIcn
+				div(style='clear:both; float: none;')
+			.clearfix
+	//
+		Content
+		================================================== 
+	.six.columns
+		.product-page
+			// Headline
+			section.title(ng-switch='product.discount != null')
+				h2 {{product.name}}
+				span.product-price-discount(ng-switch-when='true')
+					| {{product.cost}} p.
+					i {{product.cost - ((product.cost / 100) * product.discount)}} p.
+				span.product-price(ng-switch-when='false') {{product.cost}} p.
+				//- .reviews-counter
+				//- 	.rating.five-stars
+				//- 		.star-rating
+				//- 		.star-bg
+				//- 	span 3 Reviews
+			// Text Parapgraph
+			section
+				p.margin-reset(ng-bind-html='product.overviewSafe')
+				//- // Share Buttons
+				//- .share-buttons
+				//- 	ul
+				//- 		li.active
+				//- 			a(href='http://vasterad.com/themes/trizzy/variable-product-page.html#') Share
+				//- 		li.share-facebook(style='display: none;')
+				//- 			a(href='http://vasterad.com/themes/trizzy/variable-product-page.html#') Facebook
+				//- 		li.share-twitter(style='display: none;')
+				//- 			a(href='http://vasterad.com/themes/trizzy/variable-product-page.html#') Twitter
+				//- 		li.share-gplus(style='display: none;')
+				//- 			a(href='http://vasterad.com/themes/trizzy/variable-product-page.html#') Google Plus
+				//- 		li.share-pinit(style='display: none;')
+				//- 			a(href='http://vasterad.com/themes/trizzy/variable-product-page.html#') Pin It
+				.clearfix
+			// Variables
+			//- section.variables
+			//- 	.four.alpha.columns
+			//- 		label(for='size') Size
+			//- 		#select-size.customSelect
+			//- 			select#size(name='size')
+			//- 				option S
+			//- 				option M
+			//- 				option L
+			//- 				option XL
+			//- 			.selectValueWrap
+			//- 				.selectedValue S
+			//- 				span.caret
+			//- 			.selectList
+			//- 				.selectListOuterWrap
+			//- 					.selectListInnerWrap
+			//- 						.selectListTop
+			//- 						dl
+			//- 							dd.itm-0.selected S
+			//- 							dd.itm-1 M
+			//- 							dd.itm-2 L
+			//- 							dd.itm-3 XL
+			//- 						.selectListBottom
+			//- 	.four.omega.columns
+			//- 		label(for='color') Color
+			//- 		#select-color.customSelect
+			//- 			select#color(name='color')
+			//- 				option Blue
+			//- 				option Green
+			//- 				option Red
+			//- 			.selectValueWrap
+			//- 				.selectedValue Blue
+			//- 				span.caret
+			//- 			.selectList
+			//- 				.selectListOuterWrap
+			//- 					.selectListInnerWrap
+			//- 						.selectListTop
+			//- 						dl
+			//- 							dd.itm-0.selected Blue
+			//- 							dd.itm-1 Green
+			//- 							dd.itm-2 Red
+			//- 						.selectListBottom
+			//- 	.clearfix
+			section.linking
+				form(action='http://vasterad.com/themes/trizzy/variable-product-page.html#')
+					.qtyminus
+					input.qty(type='text', name='quantity', value='1')
+					.qtyplus
+				a.button.adc(href='http://vasterad.com/themes/trizzy/variable-product-page.html#') Add to Cart
+				.clearfix
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//- //
+//- 	Slider
+//- 	================================================== 
+//- .container
+//- 	.six.columns
+//- 		.slider-padding
+//- 			#product-slider-vertical.royalSlider.rsDefault
+//- 				a.mfp-gallery(href='#', title='First Title')
+//- 					img.rsImg(ng-src='{{product.pictures.main.url}}', data-rstmb='./assets/product_item_thumb_04a.png', alt='')
+//- 			.clearfix
+//- 	//
+//- 		Content
+//- 		================================================== 
+//- 	.six.columns
+//- 		.product-page
+//- 			//
+//- 				Headline 
+//- 			section.title
+//- 				h2 {{product.name}}
+//- 				span.product-price {{product.cost}} p.
+//- 			//
+//- 				Text Parapgraph 
+//- 			section
+//- 				p.margin-reset(ng-bind-html='product.overviewSafe')
+//- 					//- {{product.overview}}
+//- 					//- | Maecenas consequat mauris nec semper tristique. Etiam fermentum augue ac vulputate pulvinar. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque
+//- 					//- a(href='#') ThemeForest
+//- 					//- | arcu sed mollis. Nulla egestas nulla elit, eu condimentum diam fringilla blandit.
+//- 				//- //
+//- 				//- 	Share Buttons 
+//- 				//- .share-buttons
+//- 				//- 	ul
+//- 				//- 		li
+//- 				//- 			a(href='#') Share
+//- 				//- 		li.share-facebook
+//- 				//- 			a(href='#') Facebook
+//- 				//- 		li.share-twitter
+//- 				//- 			a(href='#') Twitter
+//- 				//- 		li.share-gplus
+//- 				//- 			a(href='#') Google Plus
+//- 				//- 		li.share-pinit
+//- 				//- 			a(href='#') Pin It
+//- 				.clearfix
+//- 			section.linking
+//- 				form(action='#')
+//- 					.qtyminus
+//- 					input.qty(type='text', name='quantity', value='1')
+//- 					.qtyplus
+//- 				a.button.adc(href='#') Add to Cart
+//- 				.clearfix
+//- 				//- a.mfp-gallery(href='./assets/product_item_04b-big.jpg', title='Second Title')
+//- 				//- 	img.rsImg(ng-src='{{product.pictures.main.url}}', data-rstmb='./assets/product_item_thumb_04b.png', alt='')
+//- 				//- a.mfp-gallery(href='./assets/product_item_04c-big.jpg', title='Third Title')
+//- 				//- 	img.rsImg(ng-src='{{product.pictures.main.url}}', data-rstmb='./assets/product_item_thumb_04c.png', alt='')
+//- 			//- #product-slider-vertical.royalSlider.rsDefault.rsAutoHeight.rsHor.rsWithThumbs.rsWithThumbsVer(style='height: 292.8571428571429px;')
+//- 			//- 	.rsOverflow(style='cursor: -webkit-grab; -webkit-transition: height 600ms ease-in-out; transition: height 600ms ease-in-out; width: 304px; height: 343px;')
+//- 			//- 			.rsContainer(style='-webkit-transition: 0s; transition: 0s; -webkit-transform: translate3d(0px, 0px, 0px);')
+//- 			//- 				.rsSlide(style='left: 0px;')
+//- 			//- 					a.mfp-gallery(href='./assets/product_item_04a-big.jpg', title='First Title', style='visibility: visible; -webkit-transition: opacity 400ms ease-in-out; transition: opacity 400ms ease-in-out; opacity: 1;')
+//- 			//- 						img.rsImg.rsMainSlideImage(ng-src='{{product.pictures.main.url}}', data-rstmb='images/product_item_thumb_04a.png', alt='')
+//- 			//- 				.rsSlide(style='left: 304px;')
+//- 			//- 					a.mfp-gallery(href='./assets/product_item_04b-big.jpg', title='Second Title')
+//- 			//- 						img.rsImg.rsMainSlideImage(ng-src='{{product.pictures.main.url}}', data-rstmb='images/product_item_thumb_04b.png', alt='')
+//- 			//- 				.rsSlide(style='left: 608px;')
+//- 			//- 					a.mfp-gallery(href='./assets/product_item_04c-big.jpg', title='Third Title')
+//- 			//- 						img.rsImg.rsMainSlideImage(ng-src='{{product.pictures.main.url}}', data-rstmb='images/product_item_thumb_04c.png', alt='')
+//- 			//- 			.rsArrow.rsArrowLeft.rsArrowDisabled(style='display: block;')
+//- 			//- 				.rsArrowIcn
+//- 			//- 			.rsArrow.rsArrowRight(style='display: block;')
+//- 			//- 				.rsArrowIcn
+//- 			//- 		.rsNav.rsThumbs.rsThumbsVer(style='padding-left: 10px;')
+//- 			//- 			.rsThumbsContainer(style='-webkit-transition: -webkit-transform; transition: -webkit-transform; height: 345px;')
+//- 			//- 				.rsNavItem.rsThumb.rsNavSelected(style='margin-bottom: 10px;')
+//- 			//- 					img(ng-src='{{product.pictures.main.url}}')
+//- 			//- 					span.thumbIco
+//- 			//- 				.rsNavItem.rsThumb(style='margin-bottom: 10px;')
+//- 			//- 					img(ng-src='{{product.pictures.main.url}}')
+//- 			//- 					span.thumbIco
+//- 			//- 				.rsNavItem.rsThumb(style='margin-bottom: 10px;')
+//- 			//- 					img(ng-src='{{product.pictures.main.url}}')
+//- 			//- 					span.thumbIco
+//- 			//- 			.rsThumbsArrow.rsThumbsArrowLeft.rsThumbsArrowDisabled
+//- 			//- 				.rsThumbsArrowIcn
+//- 			//- 			.rsThumbsArrow.rsThumbsArrowRight.rsThumbsArrowDisabled
+//- 			//- 				.rsThumbsArrowIcn
+//- 			//- 		div(style='clear: both; float: none;')
+

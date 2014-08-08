@@ -1,0 +1,26 @@
+doctype html
+html
+	head
+		title Bsound
+		meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0')
+
+		//- link(rel="stylesheet", type="text/css", href="./index.css")
+		link(rel='stylesheet', href='./assets/style.css')
+		link(rel='stylesheet', href='./assets/green.css')
+		style
+			|.visible {
+			|	display: block;
+			|}
+		//- script#item-renderer(type='text/ng-template')
+		//- 	a(href='#') {{item.title}}
+		//- 		span ({{item.items.length}})
+		//- 	ul(style='display: block;', ng-if='item.ite')
+		//- 		li(ng-repeat='item in item.items', ng-include='\'item-renderer\'')
+	body.boxed
+		//- .signin-container(ng-include='\'./app/modules/signin/templates/signin.template.html\'')
+		.app-container#wrapper
+			//- .headbar-container(ng-include='\'./app/modules/headbar/templates/headbar.template.html\'')
+			.menu-view-container.container
+				.menu-container.four.columns(ng-include='\'./app/modules/menu/templates/menu.template.html\'')
+				.view-container.twelve.columns.products(ui-view)
+		script(type='text/javascript', src='./bower_components/requirejs/require.js', data-main='./app/require.config')

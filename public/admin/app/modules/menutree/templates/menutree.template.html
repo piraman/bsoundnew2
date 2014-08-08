@@ -1,0 +1,42 @@
+
+<div class="container-fluid menutree-container"><br/>
+  <div class="panel panel-default ui-ribbon-container">
+    <div class="panel-heading"><span class="fa fa-bars">&nbsp;Ribbon</span></div>
+    <div class="panel-body">
+      <div class="row"><br/>
+        <div class="col-md-8">
+          <script type="text/ng-template" id="items_renderer.html">
+            <div ui-tree-handle="ui-tree-handle"><a data-nodrag="data-nodrag" ng-click="toggle(this)" class="btn btn-success btn-xs"><span ng-class="{'fa-chevron-up': collapsed, 'fa-chevron-down': !collapsed}" class="fa"></span></a>{{ item.title }}<a data-nodrag="data-nodrag" ng-click="remove(this)" class="pull-right btn btn-danger btn-xs"><span class="fa fa-times"></span></a><a data-nodrag="data-nodrag" ng-click="newSubItem(this)" style="margin-right: 8px;" class="pull-right btn btn-primary btn-xs"><span class="fa fa-plus"></span></a><a data-nodrag="data-nodrag" ng-click="showForm(this)" class="pull-right btn btn-warning btn-xs"><span class="fa fa-chevron-right"></span></a><a data-nodrag="data-nodrag" ng-click="editTitle(this)" class="pull-right btn btn-info btn-xs"><span class="fa fa-pencil"></span></a></div>
+            <ol ui-tree-nodes="options" ng-model="item.items" ng-class="{hidden: collapsed}">
+              <li ng-repeat="item in item.items" ui-tree-node="ui-tree-node" ng-include=" 'items_renderer.html' "></li>
+            </ol>
+          </script>
+          <div ui-tree="options" data-empty-place-holder-enabled="false">
+            <ol ui-tree-nodes="ui-tree-nodes" ng-model="list">
+              <li ng-repeat="item in list" ui-tree-node="ui-tree-node" ng-include=" 'items_renderer.html' "></li>
+            </ol>
+          </div><br/>
+          <input ng-model="selectedCategory.title" class="form-control"/><br/>
+          <div class="input-group">
+            <input ng-model="newItem" class="form-control"/><span class="input-group-btn">
+              <button ng-click="addNewItem()" class="btn btn-default">Добавить</button></span>
+          </div><br/>
+          <pre class="code">{{ list | json }}</pre>
+          <button ng-click="saveSettings()" class="btn btn-success">Сохранить</button>
+        </div>
+        <div ng-show="productAddingFormVisible" class="col-md-4">
+          <div>
+            <form>
+              <div class="form-group">
+                <label class="control-label">Сопутствующие товары</label>
+                <tags-input ng-model="currentCategory.products" display-property="name">
+                  <auto-complete source="loadProductTags($query)"></auto-complete>
+                </tags-input>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

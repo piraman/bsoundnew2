@@ -1,0 +1,16 @@
+script#item-renderer(type='text/ng-template')
+	a(href='#') {{item.title}}
+		span ({{item.items.length + item.products.length}})
+	ul(style='display: block;', ng-if='item.items.length || item.products.length')
+		li(ng-repeat='item in item.items', ng-include='\'item-renderer\'', ng-init='collapsed = true')
+		li(ng-repeat='product in item.products')
+			a(href='#', ui-sref='product.document({product: product._id})') {{product.name}}
+
+.widget.margin-top-0(ng-controller='MenuController')
+	h3.headline Categories
+	span.line
+	.clearfix
+	ul#categories
+		li(ng-repeat='item in menutree', ng-include='\'item-renderer\'', ng-init='collapsed = true')
+	.clearfix
+

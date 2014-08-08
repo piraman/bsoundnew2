@@ -1,0 +1,14 @@
+
+<div class="panel panel-default">
+  <div class="panel-heading">Технические характеристики сабвуфера</div>
+  <div ng-controller="ProductTechsLoudspeackersController" class="panel-body">
+    <form class="form-horizontal">
+      <div ng-repeat="tech in product.techs" class="form-group">
+        <label class="control-label col-md-2">{{tech[0]}}</label>
+        <div class="col-md-10">
+          <input ng-model="tech[1]" class="form-control"/>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

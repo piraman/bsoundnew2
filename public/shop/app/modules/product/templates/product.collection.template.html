@@ -1,0 +1,13 @@
+
+<div ng-repeat="product in products" class="four shop columns">
+  <figure class="product">
+    <div ng-if="product.discount != null" class="product-discount">{{product.discount}}%</div>
+    <div class="mediaholder"><a ui-sref="product.document({product: product._id})" href="#"><img ng-src="{{product.pictures.main.url}}"/>
+        <div class="cover"><img ng-src="{{product.pictures.main.url}}"/></div></a><a href="#" class="product-button"><i class="fa fa-shopping-cart"></i>Add to Cart</a></div><a href="#">
+      <section><span class="product-category">{{product.name}}</span>
+        <h5>{{product.info}}</h5>
+        <div ng-switch="product.discount != null"><span ng-switch-when="true" class="product-price-discount">{{product.cost}} р.<i>{{product.cost - ((product.cost / 100) * product.discount)}} р.</i></span><span ng-switch-when="false" class="product-price">{{product.cost}} р.</span></div>
+      </section></a>
+  </figure>
+  <div class="clearfix"></div>
+</div>

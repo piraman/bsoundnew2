@@ -1,0 +1,120 @@
+
+<div class="container-fluid"><br/>
+  <div class="panel panel-default ui-ribbon-container">
+    <div class="panel-heading"><span class="fa fa-bars">&nbsp;Ribbon</span></div>
+    <div class="panel-body">
+      <form class="form-horizontal">
+        <div class="form-group">
+          <label class="control-label col-md-2">Наименование</label>
+          <div class="col-md-10">
+            <input ng-model="product.name" class="form-control"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-md-2">Краткое описание</label>
+          <div class="col-md-10">
+            <input ng-model="product.info" class="form-control"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-md-2">Общие сведения</label>
+          <div class="col-md-10">
+            <text-angular ng-model="product.overview"></text-angular>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-md-2">Стоимость</label>
+          <div class="col-md-10">
+            <input ng-model="product.cost" type="number" class="form-control"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-md-2">Валюта</label>
+          <div class="col-md-10">
+            <select ng-model="product.currency" class="form-control">
+              <option></option>
+              <option value="RU">Рубль</option>
+              <option value="US">Доллар</option>
+              <option value="EU">Эвро</option>
+              <option value="YE">Условная единица</option>
+            </select>
+          </div>
+        </div>
+        <div ng-if="product.currency === 'YE'" class="form-group">
+          <label class="control-label col-md-2">Значение условной единицы</label>
+          <div class="col-md-10">
+            <input ng-model="product.yevalue" type="number" class="form-control"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-md-2">Скидка</label>
+          <div class="col-md-10">
+            <select ng-model="product.discount" class="form-control">
+              <option></option>
+              <option value="5">5%</option>
+              <option value="10">10%</option>
+              <option value="15">15%</option>
+              <option value="25">20%</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-md-2">Позиция</label>
+          <div class="col-md-10">
+            <input ng-model="product.index" type="number" class="form-control"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-md-2">Тип продукта</label>
+          <div class="col-md-10">
+            <select ng-model="product.type" class="form-control">
+              <option></option>
+              <option value="loudspeackers">Сабвуферы</option>
+              <option value="speackers">Акустические системы</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-md-2">Технические характеристики</label>
+          <div class="col-md-10">
+            <div ng-if="product.type" class="animate-if">
+              <ng-include src="'./app/modules/product/templates/product.techs.' + product.type + '.template.html'"></ng-include>
+            </div>
+            <div ng-if="!product.type" class="animate-if">Выберите тип продукта</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-md-2">Заголовок описания</label>
+          <div class="col-md-10">
+            <input ng-model="product.description.title" class="form-control"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-md-2">Короткая версия описания</label>
+          <div class="col-md-10">
+            <text-angular ng-model="product.description.short"></text-angular>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-md-2">Полная версия описания</label>
+          <div class="col-md-10">
+            <text-angular ng-model="product.description.full"></text-angular>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-md-2">Сопутствующие товары</label>
+          <div class="col-md-10">
+            <tags-input ng-model="product.related" display-property="name">
+              <auto-complete source="loadProductTags($query)"></auto-complete>
+            </tags-input>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="btn-group col-md-10 col-md-offset-2">
+            <button ng-click="saveDocument()" class="btn btn-default">Сохранить</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

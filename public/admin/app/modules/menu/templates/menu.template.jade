@@ -1,0 +1,4 @@
+.menu(ng-controller='MenuController')
+	ul
+		li(ng-repeat='item in items')
+			a(ui-sref='{{item.state}}', href) {{item.text}}

@@ -1,0 +1,52 @@
+
+<div class="container">
+  <!--
+  Slider
+  ================================================== 
+  -->
+  <div class="six columns">
+    <div class="slider-padding">
+      <div id="product-slider" style="height: 300px;" class="royalSlider rsDefault rsAutoHeight rsHor rsWithThumbs rsWithThumbsHor">
+        <div style="cursor: -webkit-grab; width: 100%; -webkit-transition: height 600ms ease-in-out; transition: height 600ms ease-in-out;" class="rsOverflow">
+          <div style="-webkit-transition: 0s; transition: 0s; -webkit-transform: translate3d(0px, 0px, 0px);" class="rsContainer">
+            <div style="left: 0px;" class="rsSlide"><img ng-src="{{product.pictures.main.url}}" data-rstmb="images/product_item_thumb_01a.png" alt="" style="visibility: visible; -webkit-transition: opacity 400ms ease-in-out; transition: opacity 400ms ease-in-out; opacity: 1; width: 100%;" class="rsImg rsMainSlideImage"/></div>
+          </div>
+          <div style="display: block;" class="rsArrow rsArrowLeft rsArrowDisabled">
+            <div class="rsArrowIcn"></div>
+          </div>
+          <div style="display: block;" class="rsArrow rsArrowRight">
+            <div class="rsArrowIcn"></div>
+          </div>
+        </div>
+        <div style="clear:both; float: none;"></div>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+  <!--
+  Content
+  ================================================== 
+  -->
+  <div class="six columns">
+    <div class="product-page">
+      <!-- Headline-->
+      <section ng-switch="product.discount != null" class="title">
+        <h2>{{product.name}}</h2><span ng-switch-when="true" class="product-price-discount">{{product.cost}} p.<i>{{product.cost - ((product.cost / 100) * product.discount)}} p.</i></span><span ng-switch-when="false" class="product-price">{{product.cost}} p.</span>
+      </section>
+      <!-- Text Parapgraph-->
+      <section>
+        <p ng-bind-html="product.overviewSafe" class="margin-reset"></p>
+        <div class="clearfix"></div>
+      </section>
+      <!-- Variables-->
+      <section class="linking">
+        <form action="http://vasterad.com/themes/trizzy/variable-product-page.html#">
+          <div class="qtyminus"></div>
+          <input type="text" name="quantity" value="1" class="qty"/>
+          <div class="qtyplus"></div>
+        </form><a href="http://vasterad.com/themes/trizzy/variable-product-page.html#" class="button adc">Add to Cart</a>
+        <div class="clearfix"></div>
+      </section>
+    </div>
+  </div>
+</div>
